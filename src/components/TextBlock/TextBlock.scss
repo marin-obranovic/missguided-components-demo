@@ -1,0 +1,17 @@
+.text-container {
+  display: flex;
+
+  &.align-left {
+    justify-content: flex-start;
+  }
+  &.align-right {
+    justify-content: flex-end;
+  }
+  &.align-center {
+    justify-content: center;
+  }
+
+  &.text-bold {
+    font-weight: bold;
+  }
+}
