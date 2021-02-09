@@ -1,4 +1,4 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
@@ -29,7 +29,7 @@ module.exports = {
         test: /\.scss$/,
         use: [
           { loader: "style-loader" },
-          MiniCssExtractPlugin.loader,
+          // { loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
           { loader: "css-loader" },
           { loader: "postcss-loader" },
           { loader: "sass-loader" },
@@ -38,12 +38,12 @@ module.exports = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: "[name].css",
-      chunkFilename: "[id].css",
-    }),
+    // new MiniCssExtractPlugin({
+    //   // Options similar to the same options in webpackOptions.output
+    //   // both options are optional
+    //   // filename: "[name].css",
+    //   // chunkFilename: "[id].css",
+    // }),
     new CleanWebpackPlugin(),
   ],
 };
