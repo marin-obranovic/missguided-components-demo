@@ -1,6 +1,6 @@
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   output: {
@@ -9,11 +9,11 @@ module.exports = {
     libraryTarget: "umd",
     library: "missguided-components",
     umdNamedDefine: true,
-    globalObject: "this", //!!!This line
+    globalObject: "this",
   },
   target: "web",
   externals: {
-    react: "react", // Case matters here
+    react: "react",
   },
   module: {
     rules: [
@@ -29,7 +29,6 @@ module.exports = {
         test: /\.scss$/,
         use: [
           { loader: "style-loader" },
-          // { loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
           { loader: "css-loader" },
           { loader: "postcss-loader" },
           { loader: "sass-loader" },
@@ -37,15 +36,8 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    // new MiniCssExtractPlugin({
-    //   // Options similar to the same options in webpackOptions.output
-    //   // both options are optional
-    //   // filename: "[name].css",
-    //   // chunkFilename: "[id].css",
-    // }),
-    new CleanWebpackPlugin(),
-  ],
+  plugins: [new CleanWebpackPlugin()],
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
+  },
 };
-
-//MiniCssExtractPlugin.loader, "postcss-loader",
