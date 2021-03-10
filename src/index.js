@@ -5,6 +5,6 @@ import { TextBanner } from "./components/TextBanner/index.jsx";
 import { Button } from "./components/Button/index.jsx";
 
 // paterns
-import { DiscountBoxes } from "./paterns/DiscountBoxes/index.jsx";
+import { DiscountBoxes } from "./patterns/DiscountBoxes/index.jsx";
 
 export { PageTitle, TextBlock, DiscountBox, DiscountBoxes, TextBanner, Button };
