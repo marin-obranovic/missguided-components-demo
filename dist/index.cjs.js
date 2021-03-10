@@ -3,10 +3,12 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var React = require('react');
+var classNames = require('classnames');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+var classNames__default = /*#__PURE__*/_interopDefaultLegacy(classNames);
 
 var e=[],t=[];function n(n,r){if(n&&"undefined"!=typeof document){var a,s=!0===r.prepend?"prepend":"append",d=!0===r.singleTag,i="string"==typeof r.container?document.querySelector(r.container):document.getElementsByTagName("head")[0];if(d){var u=e.indexOf(i);-1===u&&(u=e.push(i)-1,t[u]={}),a=t[u]&&t[u][s]?t[u][s]:t[u][s]=c();}else a=c();65279===n.charCodeAt(0)&&(n=n.substring(1)),a.styleSheet?a.styleSheet.cssText+=n:a.appendChild(document.createTextNode(n));}function c(){var e=document.createElement("style");if(e.setAttribute("type","text/css"),r.attributes)for(var t=Object.keys(r.attributes),n=0;n<t.length;n++)e.setAttribute(t[n],r.attributes[t[n]]);var a="prepend"===s?"afterbegin":"beforeend";return i.insertAdjacentElement(a,e),e}}
 
@@ -62,6 +64,52 @@ var DiscountBox = function DiscountBox(Props) {
   }, /*#__PURE__*/React__default['default'].createElement("div", null, "ts&cs"), /*#__PURE__*/React__default['default'].createElement("div", null, "No code required")));
 };
 
+var css$3 = ".text-banner {\n  text-align: center;\n  padding: 25px; }\n\na, a:hover {\n  text-decoration: none;\n  color: black; }\n";
+n(css$3,{});
+
+var TextBanner = function TextBanner(Props) {
+  var text = Props.text,
+      subText = Props.subText,
+      _Props$subLink = Props.subLink,
+      subLink = _Props$subLink === void 0 ? "" : _Props$subLink,
+      _Props$textAlignment = Props.textAlignment,
+      textAlignment = _Props$textAlignment === void 0 ? "center" : _Props$textAlignment,
+      _Props$bold = Props.bold,
+      bold = _Props$bold === void 0 ? false : _Props$bold,
+      _Props$backgroundColo = Props.backgroundColor,
+      backgroundColor = _Props$backgroundColo === void 0 ? "#FFA5B8" : _Props$backgroundColo;
+  return /*#__PURE__*/React__default['default'].createElement("div", {
+    style: {
+      backgroundColor: backgroundColor
+    },
+    className: "text-banner align-".concat(textAlignment, " ").concat(bold ? "text-bold" : "")
+  }, /*#__PURE__*/React__default['default'].createElement("p", null, text), subText && /*#__PURE__*/React__default['default'].createElement("a", {
+    href: subLink
+  }, subText));
+};
+
+var css$4 = ".mg-button {\n  font-family: \"Missguided\", Arial, sans-serif;\n  font-weight: 700;\n  letter-spacing: 0.4px;\n  text-transform: lowercase;\n  min-width: 100px;\n  background-color: #000;\n  color: #f7f6fa;\n  transition: background-color, 0.3s, color, 0.3s;\n  border: 1px solid #000;\n  display: inline-block;\n  font-size: 14px;\n  font-size: 0.875rem;\n  text-align: center;\n  padding: 0.9375rem 1.25rem;\n  line-height: 1;\n  width: 100%; }\n\n.mg-button:not(.inverted):not(.disabled):hover {\n  text-decoration: none;\n  background-color: #474747;\n  border-color: #474747;\n  color: #f7f6fa; }\n\n.disabled {\n  border-color: #b0b0b0;\n  background-color: #b0b0b0;\n  color: #e8e8e8; }\n\n.inverted:not(:hover) {\n  background-color: white;\n  color: #101013; }\n";
+n(css$4,{});
+
+var Button = function Button(Props) {
+  var text = Props.text,
+      _Props$onAction = Props.onAction,
+      onAction = _Props$onAction === void 0 ? function () {} : _Props$onAction;
+      Props.bold;
+      var _Props$inverted = Props.inverted,
+      inverted = _Props$inverted === void 0 ? false : _Props$inverted,
+      _Props$disabled = Props.disabled,
+      disabled = _Props$disabled === void 0 ? false : _Props$disabled;
+  return /*#__PURE__*/React__default['default'].createElement("button", {
+    onClick: onAction,
+    className: classNames__default['default']({
+      "mg-button": true,
+      inverted: inverted,
+      disabled: disabled
+    })
+  }, text);
+};
+
 var DiscountBoxes = function DiscountBoxes(Props) {
   var codes = Props.codes;
   return /*#__PURE__*/React__default['default'].createElement("div", null, codes.map(function (code) {
@@ -69,7 +117,9 @@ var DiscountBoxes = function DiscountBoxes(Props) {
   }));
 };
 
+exports.Button = Button;
 exports.DiscountBox = DiscountBox;
 exports.DiscountBoxes = DiscountBoxes;
 exports.PageTitle = PageTitle;
+exports.TextBanner = TextBanner;
 exports.TextBlock = TextBlock;

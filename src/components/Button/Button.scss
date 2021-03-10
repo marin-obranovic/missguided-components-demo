@@ -1,0 +1,39 @@
+.mg-button {
+  //   min-width: 350px;
+  //   margin-right: 1.5rem;
+  //   width: 40%;
+
+  font-family: "Missguided", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: lowercase;
+  min-width: 100px;
+  background-color: #000;
+  color: #f7f6fa;
+  transition: background-color, 0.3s, color, 0.3s;
+  border: 1px solid #000;
+  display: inline-block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 0.9375rem 1.25rem;
+  line-height: 1;
+  width: 100%;
+}
+.mg-button:not(.inverted):not(.disabled):hover {
+  text-decoration: none;
+  background-color: #474747;
+  border-color: #474747;
+  color: #f7f6fa;
+}
+
+.disabled {
+  border-color: #b0b0b0;
+  background-color: #b0b0b0;
+  color: #e8e8e8;
+}
+
+.inverted:not(:hover) {
+  background-color: white;
+  color: #101013;
+}
