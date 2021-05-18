@@ -1,0 +1,28 @@
+.category-carousel {
+  display: flex;
+  overflow-x: auto;
+  justify-content: center;
+
+  a {
+    margin-right: 1rem;
+  }
+
+  img {
+    width: 120px;
+  }
+
+  @media (max-width: 660px) {
+    img {
+      width: 38vw;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

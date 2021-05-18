@@ -1,0 +1,40 @@
+.carousel {
+  ol.carousel-indicators {
+    li {
+      width: 14px;
+      height: 14px;
+      border-radius: 18px;
+      border-bottom: unset;
+      border-top: unset;
+      background-clip: initial;
+      margin: 0 8px;
+      background-color: #404040;
+      opacity: 1;
+      &.active {
+        background-color: white;
+      }
+    }
+  }
+
+  .carousel-inner {
+    .carousel-item {
+      .carousel-caption {
+        position: absolute;
+        right: unset;
+        bottom: 50%;
+        left: unset;
+        padding-top: unset;
+        padding-bottom: unset;
+        width: 100%;
+
+        h4 {
+          margin: 20px 0;
+        }
+
+        button {
+          margin: 20px 0;
+        }
+      }
+    }
+  }
+}

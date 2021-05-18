@@ -1,11 +1,11 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 
-import { Button } from "./index";
+import { MgButton } from "./index";
 
 export default {
   title: "Components/Button",
-  component: Button,
+  component: MgButton,
   argTypes: {
     bold: {
       control: {
@@ -22,16 +22,22 @@ export default {
         type: "boolean",
       },
     },
+    fullWidth: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
 };
 
-const Template = (args) => <Button {...args} />;
+const Template = (args) => <MgButton {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
   text: "Find my order",
   inverted: false,
   disabled: false,
+  fullWidth: true,
   onAction: action("onAction"),
 };
 
@@ -40,6 +46,7 @@ Disabled.args = {
   text: "Find my order",
   inverted: false,
   disabled: true,
+  fullWidth: false,
   onAction: action("onAction"),
 };
 
@@ -48,5 +55,6 @@ Inverted.args = {
   text: "Find my order",
   inverted: true,
   disabled: false,
+  fullWidth: true,
   onAction: action("onAction"),
 };

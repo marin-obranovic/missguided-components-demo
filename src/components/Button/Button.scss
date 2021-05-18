@@ -1,8 +1,4 @@
 .mg-button {
-  //   min-width: 350px;
-  //   margin-right: 1.5rem;
-  //   width: 40%;
-
   font-family: "Missguided", Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 0.4px;
@@ -18,7 +14,10 @@
   text-align: center;
   padding: 0.9375rem 1.25rem;
   line-height: 1;
-  width: 100%;
+
+  &.full-width {
+    width: 100%;
+  }
 }
 .mg-button:not(.inverted):not(.disabled):hover {
   text-decoration: none;
