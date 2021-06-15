@@ -1,6 +1,6 @@
-import { PageTitle } from "./PageTitle/index.jsx";
+import { PageTitle } from "./PageTitle/index.tsx";
 import { TextBlock } from "./TextBlock/index.jsx";
-import { DiscountBox } from "./DiscountBox/index.jsx";
+import { DiscountBox } from "./DiscountBox/index.tsx";
 import { TextBanner } from "./TextBanner/index.jsx";
 import { MgButton } from "./Button/index.jsx";
 import { MgCarousel } from "./MgCarousel/index.jsx";

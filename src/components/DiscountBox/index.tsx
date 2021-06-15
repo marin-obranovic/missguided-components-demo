@@ -1,10 +1,23 @@
 import React from "react";
 import "./DiscountBox.scss";
 
-export const DiscountBox = (Props) => {
+enum Alignments {
+  center = "center",
+  left = "left",
+  right = "right",
+}
+
+export interface DiscountBoxProps {
+  text: string;
+  alignment: Alignments;
+  description: string;
+  backgroundColor: string;
+}
+
+export const DiscountBox = (Props: DiscountBoxProps) => {
   const {
     text,
-    alignment = "center",
+    alignment = Alignments.center,
     description,
     backgroundColor = "#fff3f1",
   } = Props;
