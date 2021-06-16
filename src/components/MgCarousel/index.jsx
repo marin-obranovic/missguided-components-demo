@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
-import { MgImage } from "../MgImage/index.jsx";
-import { MgButton } from "../Button/index.jsx";
+import { MgImage } from "../MgImage/index.tsx";
+import { MgButton } from "../Button/index.tsx";
 import "./styles.scss";
 
 export const MgCarousel = (Props) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { DiscountBox } from "../../components/DiscountBox/index.jsx";
+import { DiscountBox } from "../../components/DiscountBox/index.tsx";
 import "./DiscountBoxes.scss";
 
 export const DiscountBoxes = (Props) => {

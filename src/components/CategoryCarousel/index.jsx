@@ -1,5 +1,5 @@
 import React from "react";
-import { MgImage } from "../MgImage/index.jsx";
+import { MgImage } from "../MgImage/index.tsx";
 import "./styles.scss";
 
 export const CategoryCarousel = (props) => {

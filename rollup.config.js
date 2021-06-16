@@ -40,7 +40,13 @@ function extractInterfaceInformation() {
         if (item.type === "ExportNamedDeclaration") {
           const componentName = item.declaration.declarations[0].id.name;
 
-          const source = this.getCombinedSourcemap().sourcesContent[0] || "";
+          const source = this.getCombinedSourcemap().sourcesContent[0];
+          if (
+            !source ||
+            source.indexOf(`interface ${componentName}Props {`) === -1
+          ) {
+            return null;
+          }
           const contentOfInterface = {};
           source
             .split(`interface ${componentName}Props {`)[1]
