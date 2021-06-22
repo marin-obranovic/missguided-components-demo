@@ -6,7 +6,6 @@ enum Alignments {
   left = "left",
   right = "right",
 }
-
 export interface DiscountBoxProps {
   text: string;
   alignment: Alignments;

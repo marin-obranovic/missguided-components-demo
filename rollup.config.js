@@ -42,58 +42,67 @@ function extractInterfaceInformation() {
 
           const source = this.getCombinedSourcemap().sourcesContent[0];
           if (
-            !source ||
-            source.indexOf(`interface ${componentName}Props {`) === -1
+            source &&
+            source.indexOf(`interface ${componentName}Props {`) > -1
           ) {
-            return null;
-          }
-          const contentOfInterface = {};
-          source
-            .split(`interface ${componentName}Props {`)[1]
-            .split("}")[0]
-            .replace(/\s+/g, "")
-            .split(";")
-            .forEach((item) => {
-              const [key, value] = item.split(":");
-              contentOfInterface[key] = value;
+            const contentOfInterface = {};
+            source
+              .split(`interface ${componentName}Props {`)[1]
+              .split("}")[0]
+              .replace(/\s+/g, "")
+              .split(";")
+              .forEach((item) => {
+                const [key, value] = item.split(":");
+                contentOfInterface[key] = value;
+              });
+
+            this.emitFile({
+              type: "asset",
+              fileName: `form/${componentName}.json`,
+              source: JSON.stringify({
+                [componentName]: contentOfInterface,
+              }),
             });
+          }
 
-          // find name of prop interface --- i dont want to be to smart about it. Just take stupid component name and add props to add ... later on document it propertly
+          if (source.indexOf("enum") > -1) {
+            const enums = Array.from(
+              source.matchAll(/enum .*? {([^}]+)}/g) || []
+            );
+            enums.forEach((item) => {
+              const enumName = item[0]
+                .replace(/\s+/g, "")
+                .replace(/enum/g, "")
+                .split("{")[0];
 
-          // find that interface and its borders
+              const enumObject = { [enumName]: {} };
 
-          // extract information and convert in proper object
+              const values = item[1]
+                .replace(/\s+/g, "")
+                .replace(/=+/g, ":")
+                .split(",");
+
+              values.forEach((item, index) => {
+                if (item.indexOf(":") === -1 && item !== "") {
+                  enumObject[enumName][item] = index;
+                } else {
+                  const [name, value] = item.replace(/"+/g, "").split(":");
+                  enumObject[enumName][name] = value;
+                }
+              });
+
+              this.emitFile({
+                type: "asset",
+                fileName: `enum/${enumName}.json`,
+                source: JSON.stringify(enumObject),
+              });
+            });
+          }
 
           //TODO
-          // get enums
           // get default values
-
-          this.emitFile({
-            type: "asset",
-            fileName: `form/${componentName}.json`,
-            source: JSON.stringify({
-              [componentName]: contentOfInterface,
-            }),
-          });
         }
       });
-
-      // 1. dohvati interface i prop
-
-      // iz prop-a mogu dobiti sto ce se koristiti kao input a iz interface-a dobijem kojeg su tipa
-
-      /*
-      {
-        imeKomponente: {
-          nazivProp: tip
-        },
-        enums: {
-          naziv: {
-            naziv:vrijednost
-          }
-        }
-      }
-      */
     },
     async generateBundle(options, bundle) {
       const outputFilename = "form/information.json";
@@ -114,7 +123,28 @@ function extractInterfaceInformation() {
       this.emitFile({
         type: "asset",
         fileName: outputFilename,
-        source: JSON.stringify(JSON.stringify(outputObject)),
+        source: JSON.stringify(outputObject),
+      });
+
+      const enumOutputObject = {};
+
+      Object.keys(bundle)
+        .filter(
+          (key) =>
+            key.indexOf("enum/") >= 0 && key.indexOf("enum/enum.json") === -1
+        )
+        .forEach((item) => {
+          const inputObject = JSON.parse(bundle[item].source);
+          Object.keys(inputObject).forEach((key) => {
+            enumOutputObject[key] = inputObject[key];
+          });
+          delete bundle[item];
+        });
+
+      this.emitFile({
+        type: "asset",
+        fileName: "enum/enum.json",
+        source: JSON.stringify(enumOutputObject),
       });
     },
   };

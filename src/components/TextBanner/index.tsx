@@ -1,7 +1,22 @@
 import React from "react";
 import "./TextBanner.scss";
 
-export const TextBanner = (Props) => {
+enum Alignments {
+  center = "center",
+  left = "left",
+  right = "right",
+}
+
+export interface TextBannerProps {
+  text: string;
+  subText: string;
+  subLink: string;
+  textAlignment: Alignments;
+  bold: boolean;
+  backgroundColor: string;
+}
+
+export const TextBanner = (Props: TextBannerProps) => {
   const {
     text,
     subText,

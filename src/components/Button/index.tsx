@@ -2,11 +2,18 @@ import React from "react";
 import "./Button.scss";
 import classNames from "classnames";
 
-export const MgButton = (Props) => {
+export interface MgButtonProps {
+  text: string;
+  onAction: () => void;
+  inverted: boolean;
+  disabled: boolean;
+  fullWidth: boolean;
+}
+
+export const MgButton = (Props: MgButtonProps) => {
   const {
     text,
     onAction = () => {},
-    bold = false,
     inverted = false,
     disabled = false,
     fullWidth = true,

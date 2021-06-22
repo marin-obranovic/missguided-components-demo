@@ -22,28 +22,29 @@ var PageTitle = function (Props) {
 var css$1 = ".text-container {\n  display: flex;\n}\n.text-container.align-left {\n  justify-content: flex-start;\n}\n.text-container.align-right {\n  justify-content: flex-end;\n}\n.text-container.align-center {\n  justify-content: center;\n}\n.text-container.text-bold {\n  font-weight: bold;\n}";
 n(css$1,{});
 
-var TextBlock = function TextBlock(Props) {
-  var text = Props.text,
-      _Props$alignment = Props.alignment,
-      alignment = _Props$alignment === void 0 ? "center" : _Props$alignment,
-      _Props$bold = Props.bold,
-      bold = _Props$bold === void 0 ? false : _Props$bold;
-  return /*#__PURE__*/React.createElement("div", {
-    className: "text-container align-".concat(alignment, " ").concat(bold ? "text-bold" : "")
-  }, /*#__PURE__*/React.createElement("p", null, text));
-};
-
-var css$2 = ".discount-container {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 2rem;\n}\n.discount-container .firstPart {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 1rem;\n}\n.discount-container .firstPart .text {\n  font-weight: bold;\n  font-size: 1.5rem;\n  margin-bottom: 1rem;\n}\n.discount-container .secondPart {\n  background: #e8e8e8;\n  display: flex;\n  justify-content: space-between;\n  padding: 0.5rem 1rem 0.5rem 1rem;\n}\n.discount-container.align-left {\n  justify-content: flex-start;\n}\n.discount-container.align-right {\n  justify-content: flex-end;\n}\n.discount-container.align-center {\n  justify-content: center;\n}\n.discount-container.text-bold {\n  font-weight: bold;\n}";
-n(css$2,{});
-
 var Alignments$1;
 (function (Alignments) {
     Alignments["center"] = "center";
     Alignments["left"] = "left";
     Alignments["right"] = "right";
 })(Alignments$1 || (Alignments$1 = {}));
+var TextBlock = function (Props) {
+    var text = Props.text, _a = Props.alignment, alignment = _a === void 0 ? "center" : _a, _b = Props.bold, bold = _b === void 0 ? false : _b;
+    return (React.createElement("div", { className: "text-container align-" + alignment + " " + (bold ? "text-bold" : "") },
+        React.createElement("p", null, text)));
+};
+
+var css$2 = ".discount-container {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 2rem;\n}\n.discount-container .firstPart {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 1rem;\n}\n.discount-container .firstPart .text {\n  font-weight: bold;\n  font-size: 1.5rem;\n  margin-bottom: 1rem;\n}\n.discount-container .secondPart {\n  background: #e8e8e8;\n  display: flex;\n  justify-content: space-between;\n  padding: 0.5rem 1rem 0.5rem 1rem;\n}\n.discount-container.align-left {\n  justify-content: flex-start;\n}\n.discount-container.align-right {\n  justify-content: flex-end;\n}\n.discount-container.align-center {\n  justify-content: center;\n}\n.discount-container.text-bold {\n  font-weight: bold;\n}";
+n(css$2,{});
+
+var Alignments$2;
+(function (Alignments) {
+    Alignments["center"] = "center";
+    Alignments["left"] = "left";
+    Alignments["right"] = "right";
+})(Alignments$2 || (Alignments$2 = {}));
 var DiscountBox = function (Props) {
-    var text = Props.text, _a = Props.alignment, alignment = _a === void 0 ? Alignments$1.center : _a, description = Props.description, _b = Props.backgroundColor, backgroundColor = _b === void 0 ? "#fff3f1" : _b;
+    var text = Props.text, _a = Props.alignment, alignment = _a === void 0 ? Alignments$2.center : _a, description = Props.description, _b = Props.backgroundColor, backgroundColor = _b === void 0 ? "#fff3f1" : _b;
     return (React.createElement("div", { style: { backgroundColor: backgroundColor }, className: "discount-container align-" + alignment },
         React.createElement("div", { className: "firstPart" },
             React.createElement("p", { className: "text" }, text),
@@ -56,32 +57,24 @@ var DiscountBox = function (Props) {
 var css$3 = ".text-banner {\n  text-align: center;\n  padding: 25px;\n}\n\na, a:hover {\n  text-decoration: none;\n  color: black;\n}";
 n(css$3,{});
 
-var TextBanner = function TextBanner(Props) {
-  var text = Props.text,
-      subText = Props.subText,
-      _Props$subLink = Props.subLink,
-      subLink = _Props$subLink === void 0 ? "" : _Props$subLink,
-      _Props$textAlignment = Props.textAlignment,
-      textAlignment = _Props$textAlignment === void 0 ? "center" : _Props$textAlignment,
-      _Props$bold = Props.bold,
-      bold = _Props$bold === void 0 ? false : _Props$bold,
-      _Props$backgroundColo = Props.backgroundColor,
-      backgroundColor = _Props$backgroundColo === void 0 ? "#FFA5B8" : _Props$backgroundColo;
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      backgroundColor: backgroundColor
-    },
-    className: "text-banner align-".concat(textAlignment, " ").concat(bold ? "text-bold" : "")
-  }, /*#__PURE__*/React.createElement("p", null, text), subText && /*#__PURE__*/React.createElement("a", {
-    href: subLink
-  }, subText));
+var Alignments$3;
+(function (Alignments) {
+    Alignments["center"] = "center";
+    Alignments["left"] = "left";
+    Alignments["right"] = "right";
+})(Alignments$3 || (Alignments$3 = {}));
+var TextBanner = function (Props) {
+    var text = Props.text, subText = Props.subText, _a = Props.subLink, subLink = _a === void 0 ? "" : _a, _b = Props.textAlignment, textAlignment = _b === void 0 ? "center" : _b, _c = Props.bold, bold = _c === void 0 ? false : _c, _d = Props.backgroundColor, backgroundColor = _d === void 0 ? "#FFA5B8" : _d;
+    return (React.createElement("div", { style: { backgroundColor: backgroundColor }, className: "text-banner align-" + textAlignment + " " + (bold ? "text-bold" : "") },
+        React.createElement("p", null, text),
+        subText && React.createElement("a", { href: subLink }, subText)));
 };
 
 var css$4 = ".mg-button {\n  font-family: \"Missguided\", Arial, sans-serif;\n  font-weight: 700;\n  letter-spacing: 0.4px;\n  text-transform: lowercase;\n  min-width: 100px;\n  background-color: #000;\n  color: #f7f6fa;\n  transition: background-color, 0.3s, color, 0.3s;\n  border: 1px solid #000;\n  display: inline-block;\n  font-size: 14px;\n  font-size: 0.875rem;\n  text-align: center;\n  padding: 0.9375rem 1.25rem;\n  line-height: 1;\n}\n.mg-button.full-width {\n  width: 100%;\n}\n\n.mg-button:not(.inverted):not(.disabled):hover {\n  text-decoration: none;\n  background-color: #474747;\n  border-color: #474747;\n  color: #f7f6fa;\n}\n\n.disabled {\n  border-color: #b0b0b0;\n  background-color: #b0b0b0;\n  color: #e8e8e8;\n}\n\n.inverted:not(:hover) {\n  background-color: white;\n  color: #101013;\n}";
 n(css$4,{});
 
 var MgButton = function (Props) {
-    var text = Props.text, _a = Props.onAction, onAction = _a === void 0 ? function () { } : _a; Props.bold; var _c = Props.inverted, inverted = _c === void 0 ? false : _c, _d = Props.disabled, disabled = _d === void 0 ? false : _d, _e = Props.fullWidth, fullWidth = _e === void 0 ? true : _e;
+    var text = Props.text, _a = Props.onAction, onAction = _a === void 0 ? function () { } : _a, _b = Props.inverted, inverted = _b === void 0 ? false : _b, _c = Props.disabled, disabled = _c === void 0 ? false : _c, _d = Props.fullWidth, fullWidth = _d === void 0 ? true : _d;
     return (React.createElement("button", { onClick: onAction, className: classNames({
             "mg-button": true,
             inverted: inverted,
@@ -234,7 +227,7 @@ var CategoryCarousel = function CategoryCarousel(props) {
 };
 
 var MgButton$1 = function (Props) {
-    var text = Props.text, _a = Props.onAction, onAction = _a === void 0 ? function () { } : _a; Props.bold; var _c = Props.inverted, inverted = _c === void 0 ? false : _c, _d = Props.disabled, disabled = _d === void 0 ? false : _d, _e = Props.fullWidth, fullWidth = _e === void 0 ? true : _e;
+    var text = Props.text, _a = Props.onAction, onAction = _a === void 0 ? function () { } : _a, _b = Props.inverted, inverted = _b === void 0 ? false : _b, _c = Props.disabled, disabled = _c === void 0 ? false : _c, _d = Props.fullWidth, fullWidth = _d === void 0 ? true : _d;
     return (React.createElement("button", { onClick: onAction, className: classNames({
             "mg-button": true,
             inverted: inverted,
